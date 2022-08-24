@@ -1,10 +1,7 @@
 {
     "pages": [
         "pages/home/home",
-        "pages/template/home",
-        "pages/custom/home",
-        "pages/test/home",
-        "pages/my/home",
+        "pages/republic/republic",
         "pages/document/system/system",
         "pages/document/theme/theme",
         "pages/document/navbar/navbar",
@@ -48,7 +45,8 @@
         "pages/demo/avatar/avatar",
         "pages/demo/wallpaper/wallpaper",
         "pages/demo/login/login",
-        "pages/demo/set/set"
+        "pages/demo/set/set",
+        "pages/detail/index"
     ],
     "subpackages": [
         {
@@ -57,7 +55,8 @@
             "pages": [
                 "home/home"
             ]
-        }, {
+        },
+        {
             "root": "packageB",
             "name": "packTest",
             "pages": [
@@ -103,15 +102,15 @@
         "ui-tag": "/mp-cu/colorUI/components/ui-tag/ui-tag",
         "ui-progress": "/mp-cu/colorUI/components/ui-progress/ui-progress",
         "ui-tab": "/mp-cu/colorUI/components/ui-tab/ui-tab",
-        "ui-popover" : "/mp-cu/colorUI/components/ui-popover/ui-popover",
-        "ui-steps" : "/mp-cu/colorUI/components/ui-steps/ui-steps",
-        "ui-form" : "/mp-cu/colorUI/components/ui-form/ui-form",
-        "ui-form-group" : "/mp-cu/colorUI/components/ui-form-group/ui-form-group",
-        "ui-input-box" : "/mp-cu/colorUI/components/ui-input-box/ui-input-box",
-        "ui-checkbox" : "/mp-cu/colorUI/components/ui-checkbox/ui-checkbox",
-        "ui-checkbox-group" : "/mp-cu/colorUI/components/ui-checkbox-group/ui-checkbox-group",
+        "ui-popover": "/mp-cu/colorUI/components/ui-popover/ui-popover",
+        "ui-steps": "/mp-cu/colorUI/components/ui-steps/ui-steps",
+        "ui-form": "/mp-cu/colorUI/components/ui-form/ui-form",
+        "ui-form-group": "/mp-cu/colorUI/components/ui-form-group/ui-form-group",
+        "ui-input-box": "/mp-cu/colorUI/components/ui-input-box/ui-input-box",
+        "ui-checkbox": "/mp-cu/colorUI/components/ui-checkbox/ui-checkbox",
+        "ui-checkbox-group": "/mp-cu/colorUI/components/ui-checkbox-group/ui-checkbox-group",
         "ui-change-theme": "/mp-cu/colorUI/components/ui-change-theme/ui-change-theme",
-        "ui-parameter" : "/mp-sdk/components/ui-parameter/ui-parameter"
+        "ui-parameter": "/mp-sdk/components/ui-parameter/ui-parameter"
     },
     "tabBar": {
         "color": "#aaaaaa",
@@ -123,31 +122,13 @@
                 "pagePath": "pages/home/home",
                 "iconPath": "/static/tab_icon/document.png",
                 "selectedIconPath": "/static/tab_icon/document_cur.png",
-                "text": "文档"
+                "text": "失物列表"
             },
             {
-                "pagePath": "pages/template/home",
-                "iconPath": "/static/tab_icon/tpl.png",
-                "selectedIconPath": "/static/tab_icon/tpl_cur.png",
-                "text": "模板"
-            },
-            {
-                "pagePath": "pages/custom/home",
-                "iconPath": "/static/tab_icon/custom.png",
-                "selectedIconPath": "/static/tab_icon/custom_cur.png",
-                "text": "定制"
-            },
-            {
-                "pagePath": "pages/test/home",
-                "iconPath": "/static/tab_icon/test.png",
-                "selectedIconPath": "/static/tab_icon/test_cur.png",
-                "text": "实验"
-            },
-            {
-                "pagePath": "pages/my/home",
+                "pagePath": "pages/republic/republic",
                 "iconPath": "/static/tab_icon/my.png",
                 "selectedIconPath": "/static/tab_icon/my_cur.png",
-                "text": "我的"
+                "text": "发布招领"
             }
         ]
     },

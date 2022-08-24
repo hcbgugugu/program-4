@@ -4,6 +4,9 @@ import { colorUISdk } from './config/mp-sdk'
 App({
     colorUI,//挂载到app上
     colorUISdk,
+    globalData:{
+        item:{}
+    },
     onLaunch() {
         //console.log(colorUISdk.isRandom.getRandom(6))
         //console.log(colorUISdk.version)
