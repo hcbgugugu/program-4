@@ -1,19 +1,20 @@
 {
     "description": "项目配置文件",
+    "cloudfunctionRoot": "cloudfunctions/",
     "setting": {
-        "urlCheck": false,
+        "urlCheck": true,
         "es6": true,
         "enhance": true,
         "postcss": true,
         "preloadBackgroundData": false,
         "minified": true,
-        "newFeature": false,
+        "newFeature": true,
         "coverView": true,
         "nodeModules": false,
         "autoAudits": false,
         "showShadowRootInWxmlPanel": true,
         "scopeDataCheck": false,
-        "uglifyFileName": true,
+        "uglifyFileName": false,
         "checkInvalidKey": true,
         "checkSiteMap": true,
         "uploadWithSourceMap": true,
@@ -27,7 +28,8 @@
             "disablePlugins": [],
             "outputPath": ""
         },
-        "useIsolateContext": false,
+        "enableEngineNative": false,
+        "useIsolateContext": true,
         "userConfirmedBundleSwitch": false,
         "packNpmManually": false,
         "packNpmRelationList": [],
@@ -35,15 +37,14 @@
         "disableUseStrict": false,
         "minifyWXML": true,
         "showES6CompileOption": false,
-        "useCompilerPlugins": [
-            "sass"
-        ],
+        "useCompilerPlugins": false,
         "ignoreUploadUnusedFiles": true
     },
     "compileType": "miniprogram",
     "libVersion": "2.23.2",
     "appid": "wx9ec415c727abfd9f",
     "projectname": "MP-CU",
+    "cloudfunctionTemplateRoot": "cloudfunctionTemplate/",
     "packOptions": {
         "ignore": [],
         "include": []
@@ -71,5 +72,6 @@
     "editorSetting": {
         "tabIndent": "insertSpaces",
         "tabSize": 4
-    }
+    },
+    "simulatorPluginLibVersion": {}
 }

@@ -5,7 +5,7 @@
         <scroll-view scroll-y="{{true}}" style="height: 480px;" bindscrolltolower="handleScrollbottom">
             <view class="item" wx:for="{{list}}" wx:key="index">
                 <view class="item-img">
-                    <ui-img src="{{item.image}}" ui="radius border" local/>
+                    <ui-img src="{{item.img}}" ui="radius border" local/>
                 </view>
                 <view class="item-view">
                     <view class="item-title">{{item.title}}</view>

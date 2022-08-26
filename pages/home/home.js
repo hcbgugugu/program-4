@@ -4,7 +4,7 @@ Page({
     data: {
         scrollTop: 0, list: [
             {
-                img: 'https://oss.colorui.org/cos/img/qtrr8.png',
+                img: ['https://oss.colorui.org/cos/img/qtrr8.png'],
                 title: '钥匙一串',
                 desc: '普普通通',
                 time: '2022年6月10日',

@@ -12,7 +12,7 @@
                         <view class="back-icon icon-fw text-xl {{isFirstPage?'_icon-home-o':'_icon-back'}} {{statusCur}} {{opacityBg?'opacityIcon':''}}"/>
                         <view>{{ backtext }}</view>
                     </view>
-                    <view class="capsule {{isFirstPage?'isFirstPage':''}} {{statusCur}}" style="" wx:if="{{capsule}}">
+                    <view class="capsule {{isFirstPage?'isFirstPage':''}} {{statusCur}}"  wx:if="{{capsule}}">
                         <view class="capsule-back" bindtap="_navBack">
                             <text class="icon-fw text-xl _icon-back"/>
                         </view>

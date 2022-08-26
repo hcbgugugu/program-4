@@ -6,7 +6,7 @@
             <view style="padding-top: {{beforeHeight}}px;padding-bottom: {{afterHeight}}px;">
                 <view class="item" wx:for="{{windowsShowList}}" wx:key="index">
                     <view class="item-img">
-                        <ui-img src="{{item.image}}" ui="radius border" local/>
+                        <ui-img src="{{item.img}}" ui="radius border" local/>
                     </view>
                     <view class="item-view">
                         <view class="item-title">{{item.title}}</view>

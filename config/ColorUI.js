@@ -14,7 +14,8 @@ export const colorUI = new ColorUI({
             icon: '/static/tab_icon/document.png',
             curIcon: '/static/tab_icon/document_cur.png',
             url: '/pages/home/home',
-            type: 'tab'
+            type:'tab'
+            
         },
         {
             title: '发布招领',

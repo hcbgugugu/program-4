@@ -10,11 +10,6 @@ Page({
                 type: 'navigateTo' //直接跳转类型
             },
             {
-                img: 'https://ossweb-img.qq.com/images/lol/web201310/skin/big37006.jpg',
-                url: '/pages/custom/home',
-                type: 'switchTab' //直接跳转类型
-            },
-            {
                 img: 'https://ossweb-img.qq.com/images/lol/web201310/skin/big39000.jpg',
                 type: 'eve' //事件方式
             },
