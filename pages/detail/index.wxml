@@ -18,14 +18,16 @@
         </view>
     </ui-navbar>
     <!--轮播图-->
-    <ui-swiper info="{{swiperList}}" height="48vw" dotStyle="line" dotCur="ui-BG-Main"/>
+    <ui-swiper info="{{item.img}}" height="48vw" dotStyle="line" dotCur="ui-BG-Main"/>
     <view class="ui-container">
         <ui-title title="{{item.title}}"/>
-        <ui-text>{{item.desc}}</ui-text>
-        <ui-text>发布时间：{{item.time}}</ui-text>
+        <view>
+            <ui-text>{{item.detail}}</ui-text>
+        </view>
+        <ui-text>发布时间：{{item.time}} </ui-text>
         <ui-text>拾到地点：{{item.where}}</ui-text>
         <view class="p-3">
-            <button class="ui-btn block" bindtap="tocontact" data-id="{{item.id}}">认领</button>
+            <button class="ui-btn block" bindtap="tocontact" data-id="{{item.id}}" data-name="{{item.name}}" data-tel="{{item.tel}}">认领</button>
         </view>
     </view>
 </ui-sys>

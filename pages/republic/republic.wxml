@@ -1,16 +1,6 @@
 <!--pages/republic/republic.wxml-->
 <!--发布失物信息-->
 <ui-sys tabbar>
-    <ui-navbar back="{{false}}" isSlot opacity scrollTop="{{scrollTop}}" placeholder="{{false}}">
-        <view class="flex-bar p-3" wx:if="{{scrollTop > sys_navBar}}">
-            <text class="text-lg cicon-goods-o text-red mx-3"/>
-            <text class="text-lg text-bold">定制模板、组件</text>
-        </view>
-        <view class="p-3 flex-bar flex-sub" wx:if="{{scrollTop > sys_navBar}}"/>
-        <view class="flex-bar">
-            <view style="{{'width:'+ (sys_capsule.width + 10)+'px; height:'+sys_capsule.height+'px'}}"/>
-        </view>
-    </ui-navbar>
 <!--正文-->
 <view class="ui-container">
     <ui-form ui="ui-BG" bindsubmit="tosubmit">
@@ -18,34 +8,33 @@
         <view class="paragraph">
             请在此输入失物信息↓
         </view>
-    
     <ui-form-group title="您的姓名或昵称">
         <ui-input-box>
-            <input class="ui-input-wrapper" placeholder="请输入您的姓名或昵称" name="name" value="{{inputname}}"/>
+            <input class="ui-input-wrapper" placeholder="请输入您的姓名或昵称" id="name" value="{{inputname}}"/>
         </ui-input-box>
     </ui-form-group>
     <ui-form-group title="您的电话号码" >
     <ui-input-box>
-        <input class="ui-input-wrapper" placeholder="请输入您的电话号码" name="tel" value="{{inputtel}}"/>
+        <input class="ui-input-wrapper" placeholder="请输入您的电话号码" id="tel" value="{{inputtel}}"/>
     </ui-input-box>
     </ui-form-group>
     <ui-form-group title="物品名称">
     <ui-input-box>
-        <input class="ui-input-wrapper" placeholder="请输入您拾到的物品名称" name="title" value="{{inputtitle}}"/>
+        <input class="ui-input-wrapper" placeholder="请输入您拾到的物品名称" id="title" value="{{inputtitle}}"/>
     </ui-input-box>
     </ui-form-group>
     <ui-form-group title="具体描述">
     <ui-input-box>
-        <input class="ui-input-wrapper" placeholder="输入更多信息以帮助失主辨别" name="detail" value="{{inputdetail}}"/>
+        <input class="ui-input-wrapper" placeholder="输入更多信息以帮助失主辨别" id="detail" value="{{inputdetail}}"/>
     </ui-input-box>
     </ui-form-group>
     <ui-form-group title="发现地点">
     <ui-input-box>
-        <input class="ui-input-wrapper" placeholder="请输入物品的发现地点" name="where" value="{{inputwhere}}"/>
+        <input class="ui-input-wrapper" placeholder="请输入物品的发现地点" id="where" value="{{inputwhere}}"/>
     </ui-input-box>
     </ui-form-group>
     <view class="mt-5">
-            <button class="ui-btn bg-blue-gradient radius lg block shadow-blue" form-type="submit" bindtap="uploadImag" data-id="{{item.length+1}}">点击上传实物照片</button>
+            <button class="ui-btn bg-blue-gradient radius lg block shadow-blue" form-type="submit" bindtap="upload" data-id="{{item.length+1}}">点击上传实物照片</button>
     </view>
 <!--按钮-->
     <view class="mt-5">

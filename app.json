@@ -1,6 +1,7 @@
 {
     "pages": [
         "pages/home/home",
+        "pages/detail/index",
         "pages/republic/republic",
         "pages/document/system/system",
         "pages/document/theme/theme",
@@ -45,8 +46,7 @@
         "pages/demo/avatar/avatar",
         "pages/demo/wallpaper/wallpaper",
         "pages/demo/login/login",
-        "pages/demo/set/set",
-        "pages/detail/index"
+        "pages/demo/set/set"
     ],
     "subpackages": [
         {

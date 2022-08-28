@@ -1,4 +1,5 @@
 // pages/republic/republic.js
+import $ from '../../utils/util'
 const app = getApp();
 const util = require('../../utils/util.js')
 let that=this
@@ -15,94 +16,66 @@ Page({
         inputwhere:'',
         inputdetail:'',
     },
-    /*上传照片*/
-    async uploadImag(e){
-        let filePathObj = null
-        let filePathList = []
-        filePathObj = await this.chooseImg(5)
-        if (!filePathObj) return
-        filePathList = filePathObj.tempFilePaths
-        console.log("选择文件信息 ====>", filePathObj)
-        let cloudPathList = []
-        for (let i = 0; i < filePathList.length; i++) {
-        const cloudPathObj = await this.upLoadFile(filePathList[i], 'file')
-        if (!cloudPathObj) {
-            continue
-        }
-        console.log(filePathList[i], "文件上传成功=====>", cloudPathObj)
-        cloudPathList.push(cloudPathObj.fileID)
-        this.setData({[`item[${that.data.item.length}]`]:{
-            [`img[i]`]:filePathList[i],
-        }, 
+    //上传照片
+    upload(){
+        wx.chooseImage({//异步方法
+          count: 9,//最多选择图片数量
+          sizeType:['original', 'compressed'],//选择的图片尺寸 原图，压缩图
+          sourceType:['album','camera'],//相册选图，相机拍照
+          success(res){
+            //const tempFilePaths = res.tempFilePaths
+            that.setData({
+              img: res.tempFilePaths
+             });
+             console.log("选择成功",res)
+          }
         })
-    }
-        console.log("最终返回云文件ID列表 =====>", cloudPathList)
-        
-    },
-    chooseImg(count, sizeType, sourceType) {
-        if (!count) count = 1
-        if (!sizeType) sizeType = ['original', 'compressed']
-        if (!sourceType) sourceType = ['album', 'camera']
-        return new Promise((resolve, reject) => {
-          wx.chooseImage({
-            count: count,
-            sizeType: sizeType,
-            sourceType: sourceType,
-            success(res) {
-              resolve(res)
+      },
+    uploadImage(index){
+        let that=this
+          wx.cloud.uploadFile({//上传至微信云存储
+            cloudPath:'file/' + new Date().getTime() + "_" +  Math.floor(Math.random()*1000) + ".jpg",//使用时间戳加随机数给图片命名
+            filePath:that.data.images[index],// 本地文件路径
+            success: res => {
+              // 返回文件 ID
+              console.log("上传成功",res.fileID)
+              that.data.images_success[index] = res.fileID;
+              that.data.images_success_size = that.data.images_success_size+1;
+     
+              if(that.data.images_success_size == that.data.images.length){
+                console.log("上传成功：", that.data.images_success)
+              } else {
+                that.uploadImage(index+1)
+              }
             },
-            fail(err) {
-              resolve(false)
-              console.error("===== 选取照片失败 =====", err)
+            fail: err =>{
+              that.setData({
+                images_success:[],
+                images_success_size:0
+              })
+              wx.showToast({
+                icon:'none',
+                title: '上传失败，请重新上传',
+              })
             }
           })
-        })
-      },
-    
-      /** 
-       * 上传文件封装函数, 文件名随机性处理，由17位随机字符+13位时间戳组成
-       * @param {string} filePath 要上传图片的临时路径
-       * @param {string} cloudPathPrefix 云数据库存储文件路径前缀
-       */
-      upLoadFile(filePath, cloudPathPrefix) {
-        // 取随机名
-        let str = '0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ';
-        let randomStr = '';
-        for (let i = 17; i > 0; --i) {
-          randomStr += str[Math.floor(Math.random() * str.length)];
-        }
-        randomStr += new Date().getTime()
-        return new Promise((resolve, reject) => {
-          let suffix = /\.\w+$/.exec(filePath)[0] //正则表达式返回文件的扩展名
-          let cloudPath = cloudPathPrefix + '/' + randomStr + suffix
-          wx.cloud.uploadFile({
-            cloudPath: cloudPath,
-            filePath: filePath,
-            success(res) {
-              resolve(res)
-            },
-            fail(err) {
-              resolve(false)
-              console.error("===== 上传文件失败 =====", err)
-            },
-          })
-        })
+     
       },
     tosubmit(e){
-        let {detail: {value: {title}}} = e
-        let {detail:{value: {detail}}} = e
-        console.log(detail)
-        title = title.trim()
-        if (title === '') {
-            return
-        }
-        let name=e.detail.value.name
-        let tel=e.detail.value.tel
-        title=e.detail.value.title
-        detail=e.detail.value.detail
-        let where=e.detail.value.where
+        let name=e.currentTarget.name
+        let tel=e.currentTarget.tel
+        let title=e.currentTarget.title
+        let detail=e.currentTarget.detail
+        let where=e.currentTarget.where
         let date = util.formatTime(new Date())
         let id=Date.now()
+        app.globalData.item.name=name
+        app.globalData.item.tel=tel
+        app.globalData.item.title=title
+        app.globalData.item.detail=detail
+        app.globalData.item.where=where
+        app.globalData.item.time=date
+        app.globalData.item.id=id
         this.setData({[`item[${that.data.item.length}]`]:{
             id:id,
             name:name,
@@ -139,6 +112,16 @@ Page({
               console.log(res)
             }
           })
+          if(that.data.images.length > 0){//1、判断是否有图片
+            that.setData({
+              //3、给上传图片初始化一个长度，上传成功的数组和已有的数组一致
+              images_success:that.data.images
+            })
+            that.uploadImage(0)//2、有图片时先上传第一张
+            }
+            wx.navigateBack({
+              delta: 1,
+            })//返回页面
     },
 
     /**
@@ -152,7 +135,7 @@ Page({
      * 生命周期函数--监听页面初次渲染完成
      */
     onReady() {
-
+        console.log('----republic----')
     },
 
     /**
