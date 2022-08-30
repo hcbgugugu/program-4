@@ -3,43 +3,43 @@
 <ui-sys tabbar>
 <!--正文-->
 <view class="ui-container">
-    <ui-form ui="ui-BG" bindsubmit="tosubmit">
-        <ui-title title="定制服务" depth="2" isIcon/>
+    <form bindsubmit="tosubmit"><!--之前用ui-form没法提交-->
+        <ui-title title="发布招领" depth="2" isIcon/>
         <view class="paragraph">
             请在此输入失物信息↓
         </view>
     <ui-form-group title="您的姓名或昵称">
         <ui-input-box>
-            <input class="ui-input-wrapper" placeholder="请输入您的姓名或昵称" id="name" value="{{inputname}}"/>
+            <input class="ui-input-wrapper" placeholder="请输入您的姓名或昵称" name="name" value="{{inputname}}"/>
         </ui-input-box>
     </ui-form-group>
     <ui-form-group title="您的电话号码" >
     <ui-input-box>
-        <input class="ui-input-wrapper" placeholder="请输入您的电话号码" id="tel" value="{{inputtel}}"/>
+        <input class="ui-input-wrapper" placeholder="请输入您的电话号码" name="tel" value="{{inputtel}}"/>
     </ui-input-box>
     </ui-form-group>
     <ui-form-group title="物品名称">
     <ui-input-box>
-        <input class="ui-input-wrapper" placeholder="请输入您拾到的物品名称" id="title" value="{{inputtitle}}"/>
+        <input class="ui-input-wrapper" placeholder="请输入您拾到的物品名称" name="title" value="{{inputtitle}}"/>
     </ui-input-box>
     </ui-form-group>
     <ui-form-group title="具体描述">
     <ui-input-box>
-        <input class="ui-input-wrapper" placeholder="输入更多信息以帮助失主辨别" id="detail" value="{{inputdetail}}"/>
+        <input class="ui-input-wrapper" placeholder="输入更多信息以帮助失主辨别" name="detail" value="{{inputdetail}}"/>
     </ui-input-box>
     </ui-form-group>
     <ui-form-group title="发现地点">
     <ui-input-box>
-        <input class="ui-input-wrapper" placeholder="请输入物品的发现地点" id="where" value="{{inputwhere}}"/>
+        <input class="ui-input-wrapper" placeholder="请输入物品的发现地点" name="where" value="{{inputwhere}}"/>
     </ui-input-box>
     </ui-form-group>
     <view class="mt-5">
-            <button class="ui-btn bg-blue-gradient radius lg block shadow-blue" form-type="submit" bindtap="upload" data-id="{{item.length+1}}">点击上传实物照片</button>
+            <view class="ui-btn bg-blue-gradient radius lg block shadow-blue" bindtap="upload" data-id="{{item.length+1}}">点击上传实物照片</view>
     </view>
 <!--按钮-->
     <view class="mt-5">
-            <button class="ui-btn bg-blue-gradient radius lg block shadow-blue" form-type="submit">确定发布</button>
+            <button class="ui-btn bg-blue-gradient radius lg block shadow-blue" form-type="submit" >确定发布</button>
     </view>
-</ui-form>
+</form>
 </view>
 </ui-sys>

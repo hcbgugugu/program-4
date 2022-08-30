@@ -3,7 +3,8 @@ const app = getApp();
 Page({
     data: {
         scrollTop: 0, 
-        item:[]
+        item:{
+        }
     },
     
     //根据id跳转到详情页
@@ -14,18 +15,12 @@ Page({
             url: '/pages/detail/index?item='+item+'&index='+index,
         })
     },
-    onLoad: function (options) {
-        console.log('----homeonload----')
-        var item=app.globalData.item
-        this.setData({
-            item:item
-        })
-        console.log('home//item :',this.data.item)
-    },
       /**
    * 生命周期函数--监听页面加载
    */
-  
+onLoad:function(){
+
+},
 onShow:function(){
     console.log('----homeonshow----')
     var item=app.globalData.item

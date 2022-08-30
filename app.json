@@ -1,8 +1,8 @@
 {
     "pages": [
         "pages/home/home",
-        "pages/detail/index",
         "pages/republic/republic",
+        "pages/detail/index",
         "pages/document/system/system",
         "pages/document/theme/theme",
         "pages/document/navbar/navbar",

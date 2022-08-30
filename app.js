@@ -6,6 +6,7 @@ App({
     globalData:{
         item:[]
     },
+    
     onLaunch() {
         console.log('----app----')
         var that=this
@@ -19,12 +20,10 @@ App({
           console.log('app//res.data is :',res.data)
           that.globalData.item=res.data
           console.log('app//globaldata is :',that.globalData.item)
-          //that.globalData.item.push(res.data)
-          //console.log('app//globaldata is :',that.globalData,item)
         }
       })
-      
 },
+
     onShow() {
         
     }
