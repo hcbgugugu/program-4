@@ -125,7 +125,7 @@ uploadImage(index){
                       name:this.data.item.name,
                       tel:this.data.item.tel,
                       detail: this.data.item.detail,
-                      time: this.data.item.date,
+                      time: this.data.item.time,
                       where: this.data.item.where,
                       img:this.data.item.img,
                     },
